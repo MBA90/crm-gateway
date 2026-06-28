@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: crm-gateway
+
+server:
+  port: 8100
