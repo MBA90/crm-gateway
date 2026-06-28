@@ -1,6 +1,16 @@
 spring:
   application:
     name: crm-gateway
-
+  cloud:
+    gateway:
+      server:
+        webmvc:
+          routes:
+            - id: customer-service
+              uri: http://localhost:8201
+              predicates:
+                - Path=/services/customer/**
+              filters:
+                - StripPrefix=2
 server:
   port: 8100
