@@ -12,5 +12,10 @@ spring:
                 - Path=/services/customer/**
               filters:
                 - StripPrefix=2
+  security:
+      oauth2:
+        resourceserver:
+          jwt:
+            issuer-uri: http://localhost:8180/realms/crm-realm
 server:
   port: 8100
