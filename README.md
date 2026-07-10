@@ -88,3 +88,36 @@ otherwise requests will be rejected during JWT validation.
 ## Monitoring
 
 Actuator endpoints are available under `/actuator` for health checks and metrics.
+
+## Docker
+
+A `Dockerfile` is provided that packages the built JAR on top of an
+`eclipse-temurin:21-jre-alpine` base image. Build the JAR first, then the image:
+
+```bash
+./mvnw clean package
+docker build -t crm-gateway .
+```
+
+Run the container, mapping the gateway's port (`8100`):
+
+```bash
+docker run --rm -p 8100:8100 crm-gateway
+```
+
+> **Note:** the `Dockerfile` currently declares `EXPOSE 8201`, but the gateway
+> listens on `8100`. `EXPOSE` is documentation-only and does not affect the
+> published port; use `-p 8100:8100` when running.
+
+## CI/CD
+
+A `Jenkinsfile` defines a declarative pipeline that:
+
+1. **Build** — runs `mvn clean package -DskipTests` and archives the resulting JAR.
+2. **Docker Build & Push** — logs in to Docker Hub, builds the image tagged with the
+   Jenkins `BUILD_NUMBER`, and pushes it, then removes the local image afterward.
+
+The pipeline requires JDK 21 (`jdk-21`) and Maven (`maven-3.9`) tool installations
+configured in Jenkins, plus a `docker-hub-credentials` username/password credential.
+Update the `DOCKER_HUB_USER` environment variable in the `Jenkinsfile` to your own
+Docker Hub account.
