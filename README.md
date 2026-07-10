@@ -27,7 +27,7 @@ Tokens are validated against the configured issuer.
 
 - **Sessions:** stateless (no server-side session, no cookies)
 - **CSRF:** disabled (no cookie-based auth surface)
-- **CORS:** allows origin `http://localhost:5173` with methods
+- **CORS:** allows origin `http://localhost:5174` with methods
   `GET, POST, PUT, PATCH, DELETE, OPTIONS` and headers `Authorization, Content-Type`
 
 Security is configured in
