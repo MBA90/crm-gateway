@@ -32,7 +32,7 @@ pipeline {
             }
             post {
                 success {
-                    archiveArtifacts artifacts: 'target/crm-customer-*.jar', fingerprint: true
+                    archiveArtifacts artifacts: 'target/crm-gateway-*.jar', fingerprint: true
                 }
             }
         }
