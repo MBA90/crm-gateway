@@ -47,15 +47,10 @@ Application settings live in `src/main/resources/application.yaml`:
 
 Routes are defined under `spring.cloud.gateway.server.webmvc.routes`. Current routes:
 
-| Route ID           | Path predicate         | Target URI              | Filters        |
-| ------------------ | ---------------------- | ----------------------- | -------------- |
+| Route ID           | Path predicate          | Target URI              | Filters         |
+| ------------------ | ----------------------- | ----------------------- | --------------- |
 | `customer-service` | `/services/customer/**` | `http://localhost:8201` | `StripPrefix=2` |
-
-`StripPrefix=2` removes the `/services/customer` prefix before forwarding, so a
-request to `/services/customer/orders` reaches the downstream service as `/orders`.
-
-Add further Spring Cloud Gateway route definitions to this file to forward traffic
-to additional downstream CRM services.
+| `account-service`  | `/services/account/**`  | `http://localhost:8202` | `StripPrefix=2` |
 
 ## Building
 
