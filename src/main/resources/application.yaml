@@ -12,6 +12,12 @@ spring:
                 - Path=/services/customer/**
               filters:
                 - StripPrefix=2
+            - id: account-service
+              uri: http://localhost:8202
+              predicates:
+                - Path=/services/account/**
+              filters:
+                - StripPrefix=2
   security:
       oauth2:
         resourceserver:
