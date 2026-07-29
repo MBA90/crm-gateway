@@ -18,6 +18,12 @@ spring:
                 - Path=/services/account/**
               filters:
                 - StripPrefix=2
+            - id: workflow-service
+              uri: http://localhost:8401
+              predicates:
+                - Path=/services/workflow/**
+              filters:
+                - StripPrefix=2
   security:
       oauth2:
         resourceserver:
