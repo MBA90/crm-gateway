@@ -24,6 +24,12 @@ spring:
                 - Path=/services/workflow/**
               filters:
                 - StripPrefix=2
+            - id: master-setup-service
+              uri: http://localhost:8501
+              predicates:
+                - Path=/services/mastersetup/**
+              filters:
+                - StripPrefix=2
   security:
       oauth2:
         resourceserver:
