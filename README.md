@@ -47,11 +47,12 @@ Application settings live in `src/main/resources/application.yaml`:
 
 Routes are defined under `spring.cloud.gateway.server.webmvc.routes`. Current routes:
 
-| Route ID           | Path predicate          | Target URI              | Filters         |
-|--------------------|-------------------------|-------------------------| --------------- |
-| `customer-service` | `/services/customer/**` | `http://localhost:8201` | `StripPrefix=2` |
-| `account-service`  | `/services/account/**`  | `http://localhost:8202` | `StripPrefix=2` |
-| `workflow-service` | `/services/workflow/**` | `http://localhost:8401` | `StripPrefix=2` |
+| Route ID               | Path predicate             | Target URI              | Filters         |
+|------------------------|----------------------------|-------------------------|-----------------|
+| `customer-service`     | `/services/customer/**`    | `http://localhost:8201` | `StripPrefix=2` |
+| `account-service`      | `/services/account/**`     | `http://localhost:8202` | `StripPrefix=2` |
+| `workflow-service`     | `/services/workflow/**`    | `http://localhost:8401` | `StripPrefix=2` |
+| `master-setup-service` | `/services/mastersetup/**` | `http://localhost:8501` | `StripPrefix=2` |
 
 ## Building
 
